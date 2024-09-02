@@ -1,0 +1,101 @@
+{
+    "ghosts": [
+      {
+        "id": 0,
+        "name": "Banshee",
+        "hunt": [
+          "Para iniciar la caza necesita un 50% (o menos) de cordura, teniendo en cuenta únicamente al objetivo.",
+          "Durante la caza, no perseguirá ni matará a cualquier jugador que no sea su objetivo (a no ser que éste se encuentre fuera de la casa)."
+        ],
+        "more_info": [
+          "Tiene un grito diferente en el micrófono parabólico.",
+          "Si le ocurre un evento de canto al objetivo de la caza, y éste hace desaparecer al fantasma de manera prematura, le bajará la cordura un 15% en lugar de un 10%.",
+          "Para completar el objetivo opcional \"Repeler a un fantasma mientras persigue a alguien\" se debe utilizar el incienso cerca del fantasma cuando esté persiguiendo a su objetivo (tanto el mismo objetivo como el resto de jugadores). De lo contrario, no se cumplirá."
+        ],
+        "evidences": [4, 1, 6],
+        "speed_changes": false
+      },
+      {
+        "id": 1,
+        "name": "Demonio",
+        "hunt": [
+          "Puede iniciar cazas a cualquier nivel de cordura promedio, aunque suele ser 70% o menos.",
+          "Los crucifijos aumentan su radio de bloqueo en un 50%.",
+          "Su cooldawn se reduce de 25 a 20 segundos.",
+          "Quemar incienso en su ubicación prevendrá la caza durante 60 segundos, no 90."
+        ],
+        "more_info": [],
+        "evidences": [4, 5, 3],
+        "speed_changes": false
+      },
+      {
+        "id": 2,
+        "name": "Deogen",
+        "hunt": [
+          "Puede iniciar cazas a 40% de cordura promedio.",
+          "Su velocidad es un 75% superior cuando está a más de 6 metros del jugador. Cuando está a menos, se vuelve mucho más lento.",
+          "Los escondites no funcionan y normalmente elige al jugador más cercano a su posición.",
+          "Durante la caza, es invisible durante intervalos más cortos."
+        ],
+        "more_info": [
+          "Puede producir una respiración única y pesada a menos de 1 metro."
+        ],
+        "evidences": [2, 5, 6],
+        "speed_changes": true
+      },
+      {
+        "id": 3,
+        "name": "Goryo",
+        "hunt": [
+          "No tiene comportamiento especial antes, durante o después de una caza"
+        ],
+        "more_info": [
+          "Se mostrará mediante D.O.T.S únicamente a través de una cámara de vídeo.",
+          "No interactuará con D.O.T.S si está acompañado.",
+          "Nunca cambiará de habitación ni deambulará largas distancias.",
+          "Con evidencias limitadas (1 o 2), una de sus evidencias siempre será D.O.T.S."
+        ],
+        "evidences": [0, 4, 6],
+        "speed_changes": false
+      }
+    ],
+
+    "evidences": [
+      {
+        "id": 0,
+        "name": "EMF 5",
+        "tip": "Consejos o información útil sobre el objeto"
+      },
+      {
+        "id": 1,
+        "name": "Orbe",
+        "tip": "Consejos o información útil sobre el objeto"
+      },
+      {
+        "id": 2,
+        "name": "Spirit box",
+        "tip": "Consejos o información útil sobre el objeto"
+      },
+      {
+        "id": 3,
+        "name": "Temperatura",
+        "tip": "Consejos o información útil sobre el objeto"
+      },
+      {
+        "id": 4,
+        "name": "Ultravioleta",
+        "tip": "Consejos o información útil sobre el objeto"
+      },
+      {
+        "id": 5,
+        "name": "Escritura",
+        "tip": "Consejos o información útil sobre el objeto"
+      },
+      {
+        "id": 6,
+        "name": "D.O.T.S",
+        "tip": "Consejos o información útil sobre el objeto"
+      }
+    ]
+  }
+  

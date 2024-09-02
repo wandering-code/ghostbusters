@@ -1,0 +1,84 @@
+@font-face {
+    font-family: "phasmophobia_font";
+    src: url("fonts/lazy_dog.ttf");
+}
+
+body {
+    font-family: "phasmophobia_font";
+    margin: 0;
+    padding: 0;
+    height: 100%;
+}
+
+/* Aplica la imagen de fondo al contenedor principal */
+#div_background {
+    position: relative;
+    width: 100%;
+    height: 100vh;
+    overflow: hidden;
+    align-items: center;
+    justify-content: center;
+}
+
+#div_background::before {
+    content: "";
+    position: absolute;
+    top: 0;
+    left: 0;
+    width: 100%;
+    height: 100vh;
+    background-image: url('images/background.png');
+    background-size: cover;
+    background-repeat: no-repeat;
+    background-position: center;
+    filter: blur(10px); /* Ajusta el valor para el nivel de desenfoque deseado */
+    z-index: -1; /* Coloca el pseudo-elemento detrás del contenido */
+    opacity: 0.8; /* Ajusta la transparencia si es necesario */
+}
+
+#div_content {
+    position: absolute;
+    top: 0;
+    left: 50%;
+    width: 100%;
+    max-width: 80%; /* Ajusta este valor según el diseño */
+    transform: translateX(-50%);
+    background-color: rgba(255, 255, 255, 0.8); /* Fondo blanco semitransparente para el contenido */
+    box-sizing: border-box; /* Incluye el padding en el tamaño total */
+}
+
+#div_items_menu {
+    background-color: white;
+    border-radius: 8px;
+    position: absolute;
+    top: 10px;
+    left: 0;
+    width: 100%;
+    z-index: 2;
+    display: flex;
+    flex-wrap: wrap;
+    justify-content: center;
+}
+
+#div_items_menu_top,
+#div_items_menu_bottom {
+    display: flex;
+    justify-content: center;
+    width: 100%;
+}
+
+#div_items_menu section {
+    flex: 1 0 10%; /* Controla el ancho mínimo para mantener los elementos en una línea */
+    text-align: center;
+    font-size: 2vw;
+    padding: 25px;
+    box-sizing: border-box;
+}
+
+@media (max-width: 400px) {
+    #div_items_menu section {
+        flex: 1 0 20%; /* Cambia a dos columnas en pantallas más pequeñas */
+        font-size: 2vw;
+        padding: 10px;
+    }
+}
