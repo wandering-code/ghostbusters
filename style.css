@@ -10,23 +10,13 @@ body {
     height: 100%;
 }
 
-/* Aplica la imagen de fondo al contenedor principal */
-#div_background {
-    position: relative;
-    width: 100%;
-    height: 100vh;
-    overflow: hidden;
-    align-items: center;
-    justify-content: center;
-}
-
-#div_background::before {
+body::before {
     content: "";
-    position: absolute;
+    position: fixed; /* Cambia a fixed para que el fondo cubra toda la pantalla */
     top: 0;
     left: 0;
     width: 100%;
-    height: 100vh;
+    height: 100%;
     background-image: url('images/background.png');
     background-size: cover;
     background-repeat: no-repeat;
@@ -43,42 +33,169 @@ body {
     width: 100%;
     max-width: 80%; /* Ajusta este valor según el diseño */
     transform: translateX(-50%);
-    background-color: rgba(255, 255, 255, 0.8); /* Fondo blanco semitransparente para el contenido */
     box-sizing: border-box; /* Incluye el padding en el tamaño total */
+    padding-bottom: 20px;
 }
 
 #div_items_menu {
     background-color: white;
-    border-radius: 8px;
-    position: absolute;
-    top: 10px;
-    left: 0;
+    border-radius: 10px;
+    margin-top: 10px;
     width: 100%;
-    z-index: 2;
     display: flex;
     flex-wrap: wrap;
-    justify-content: center;
+    box-sizing: border-box;
+    z-index: 1;
 }
 
-#div_items_menu_top,
-#div_items_menu_bottom {
+#div_items_menu {
     display: flex;
-    justify-content: center;
-    width: 100%;
+    justify-content: space-around;
+    
 }
 
 #div_items_menu section {
-    flex: 1 0 10%; /* Controla el ancho mínimo para mantener los elementos en una línea */
     text-align: center;
-    font-size: 2vw;
-    padding: 25px;
+    margin: 10px;
+    padding: 20px;
     box-sizing: border-box;
+    position: relative;
+    z-index: 1;
+    font-size: 1.6vw;
+
+    cursor: pointer;
+    
+    background-size: 100% 100%; /* Ajusta la imagen al tamaño del section */
+    background-repeat: no-repeat;
+    background-position: center;
+
+    
 }
 
-@media (max-width: 400px) {
+/* Estilo para cuando el ratón pasa por encima 
+#div_items_menu section:hover::before {
+    content: "";
+    position: absolute;
+    top: 45%;
+    left: 50%;
+    width: 150%; 
+    height: 100%;
+    background-image: url('images/selection1.png');
+    background-size: 100% 100%; 
+    background-repeat: no-repeat;
+    background-position: center;
+    transform: translate(-50%, -50%);
+    z-index: 2;
+}
+*/
+
+
+
+
+
+#div_ghosts {
+    margin-top: 10px;
+}
+
+.ghostCard {
+    display: flex;
+    background-color: white;
+    margin-top: 20px;
+    padding: 20px;
+    border-radius: 10px;
+}
+
+.groupNameAndEvidencesCard {
+    display: flex;
+    
+}
+
+.nameSectionCard {
+    font-size: 2vw;
+    text-align: center;
+    display: flex;
+    align-items: center; 
+    justify-content: center; 
+    padding: 20px;
+    margin-right: 10px;
+    background-color: rgb(20, 20, 20);
+    color:#e8fad7;
+    border-radius: 10px;
+    box-shadow: 0 0 15px rgba(0, 0, 0, 0.3);
+    
+}
+
+
+.evidencesDivCard {
+    font-size: 1.3vw;
+    text-align: center;
+    display: flex;
+    flex-direction: column; /* Alinea los elementos en una columna */
+    justify-content: space-around; /* Centra los elementos verticalmente */
+    align-items: center; /* Centra los elementos horizontalmente */
+    padding: 10px;
+
+    background-color: rgb(20, 20, 20);
+    color:antiquewhite;
+    border-radius: 10px;
+}
+
+.infoSectionCard {
+    font-size: 1.3vw;
+    padding: 10px;
+    margin-left: 20px;
+    
+}
+
+
+
+
+
+@media (max-width: 500px) {
+    /* TOP MENU */
     #div_items_menu section {
-        flex: 1 0 20%; /* Cambia a dos columnas en pantallas más pequeñas */
-        font-size: 2vw;
+        flex: 1;
+        font-size: 3.5vw;
         padding: 10px;
+    }
+
+    /* CARDS */
+    .ghostCard {
+        display: flex;
+        flex-direction: column;
+        background-color: white;
+        margin-top: 20px;
+        justify-content: space-around;
+    }
+
+    .groupNameAndEvidencesCard {
+        display: flex;
+        flex: 0 0 25%; /* Ocupa el 25% del ancho del contenedor */
+        flex-direction: column;
+    }
+    
+    .nameSectionCard {
+        font-size: 5vw;
+        text-align: center;
+        border-radius: 10px;
+        margin-right: 0px;
+        margin-bottom: 10px;
+        
+    }
+
+    .evidencesDivCard {
+        font-size: 4.5vw;
+        text-align: center;
+        display: flex;
+        justify-content: space-around;
+        flex-direction: row;
+        border-radius: 10px;
+    }
+
+    .infoSectionCard {
+        flex: 1;
+        font-size: 3vw;
+        margin-left: 0px;
+        text-align: justify;
     }
 }

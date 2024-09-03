@@ -6,26 +6,32 @@
     <title>GhostBusters</title>
     <link rel="icon" type="image/x-icon" href="images/favicon.ico">
     <link rel="stylesheet" type="text/css" href="style.css">
+    <script src="script.js"></script>
 </head>
 <body>
-    <div id="div_background">
-        <div id="div_content">
-            <div id="div_items_menu">
-                <div id="div_items_menu_top">
-                    <section>EMF 5</section>
-                    <section>Orbes</section>
-                    <section>Escritura</section>
-                    <section>Temperatura</section>
-                </div>
-                <div id="div_items_menu_bottom">
-                    <section>Spirit box</section>
-                    <section>Ultravioleta</section>
-                    <section>D.O.T.S</section>
-                </div>
-            </div>
+    <div id="div_content">
+        <div id="div_items_menu">
+            <section onclick="selectEvidence(this, 0)">EMF 5</section>
+            <section onclick="selectEvidence(this, 1)">Orbes</section>
+            <section onclick="selectEvidence(this, 2)">Spirit box</section>
+            <section onclick="selectEvidence(this, 3)">Temperatura</section>
+            <section onclick="selectEvidence(this, 4)">Ultravioleta</section>
+            <section onclick="selectEvidence(this, 5)">Escritura</section>
+            <section onclick="selectEvidence(this, 6)">D.O.T.S</section>
+        </div>
 
-            <div id="div_ghosts">
-                <div></div>
+        <div id="div_ghosts">
+            <div>
+                <section class="name">Nombre fantasma</section>
+                <div class="evidences">
+                    <section>Evidencia 1</section>
+                    <section>Evidencia 2</section>
+                    <section>Evidencia 3</section>
+                </div>
+                <section class="info">
+                    <p>Info 1</p>
+                    <p>Info 2</p>
+                </section>
             </div>
         </div>
     </div>
