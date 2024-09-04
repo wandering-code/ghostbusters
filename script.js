@@ -109,3 +109,48 @@ function selectEvidence(element, id) {
 
     filterGhosts();
 }
+
+
+
+
+
+document.addEventListener("DOMContentLoaded", function() {
+
+    const sidebarLinks = document.querySelectorAll('.sidebar a');
+    const infoPanel = document.getElementById('info-panel');
+    const closeBtn = document.getElementById('close-btn');
+    const infoContents = document.querySelectorAll('.info-content');
+    const overlay = document.getElementById('overlay');
+
+    // Añadir eventos a los enlaces de la barra lateral
+    sidebarLinks.forEach(link => {
+        link.addEventListener('click', (e) => {
+            e.preventDefault();
+
+            // Ocultar cualquier contenido activo anterior
+            infoContents.forEach(content => content.classList.remove('active'));
+
+            // Mostrar el overlay y la pantalla de información
+            overlay.classList.add('active');
+            infoPanel.classList.add('active');
+
+            // Mostrar el contenido correspondiente al enlace
+            const panelId = link.getAttribute('data-panel');
+            document.getElementById(panelId).classList.add('active');
+        });
+    });
+
+    // Añadir evento para cerrar la pantalla de información
+    closeBtn.addEventListener('click', () => {
+        overlay.classList.remove('active');
+        infoPanel.classList.remove('active');
+        infoContents.forEach(content => content.classList.remove('active'));
+    });
+
+    // También cerrar el overlay al hacer clic en el mismo
+    overlay.addEventListener('click', () => {
+        overlay.classList.remove('active');
+        infoPanel.classList.remove('active');
+        infoContents.forEach(content => content.classList.remove('active'));
+    });
+});

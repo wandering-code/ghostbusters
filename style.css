@@ -151,6 +151,179 @@ body::before {
 
 
 
+/* TIMER 
+
+#clock-icon {
+    margin-left: -55px;
+    color: rgb(235, 234, 234);
+    border-radius: 50%;
+    cursor: pointer;
+    font-size: 1.5vw;
+    z-index: 1000;
+}
+*/
+#clock-icon {
+    position: absolute;
+    top: 45%; /* Centrado verticalmente */
+    left: -25px; /* Se posiciona justo en el borde izquierdo */
+    transform: translateY(-50%); /* Ajusta el centro vertical */
+    width: 50px;
+    height: 50px;
+    color: white;
+    border-radius: 50%;
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    cursor: pointer;
+    z-index: 1000;
+    font-size: 1.5vw;
+}
+
+/* Estilo para el recuadro del temporizador */
+#timer-container {
+    position: fixed;
+    top: 20px;
+    right: -250px; /* Inicialmente fuera de la pantalla */
+    width: 250px;
+    height: fit-content;
+    background-color: #f1f1f1;
+    box-shadow: 10px 10px 10px rgba(0, 0, 0, 0.3);
+    border-radius: 8px;
+    padding: 20px;
+    transition: right 0.3s ease-in-out;
+    z-index: 999;
+}
+
+/* Estilo para los botones y el display del temporizador */
+#timer-display {
+    font-size: 2em;
+    text-align: center;
+    margin-bottom: 15px;
+}
+
+.timer-button {
+    width: 100%;
+    padding: 10px;
+    margin: 5px 0;
+    font-size: 1em;
+    cursor: pointer;
+}
+
+#start-stop-button {
+    background-color: #28a745;
+    color: white;
+    border: none;
+    border-radius: 5px;
+}
+
+#reset-button {
+    background-color: #dc3545;
+    color: white;
+    border: none;
+    border-radius: 5px;
+}
+
+
+
+
+
+
+/* SIDE BAR */
+
+/* Barra lateral flotante */
+.sidebar {
+    position: fixed;
+    top: 0;
+    left: 0;
+    width: 40px;
+    height: fit-content;
+    background-color: rgba(255,255,255,0.2);
+    padding-top: 20px;
+    border-radius: 10px 0px 10px 0px;
+    z-index: 1000;
+}
+
+/* Estilos para los elementos de la barra lateral */
+.sidebar a {
+    padding-top: 10px;
+    padding-bottom: 10px;
+    text-align: center;
+    display: block;
+    color: white;
+    text-decoration: none;
+    margin-bottom: 10px;
+    cursor: pointer;
+}
+
+.sidebar a:hover {
+    background-color: #575757;
+}
+
+/* Pantalla de información */
+.info-panel {
+    position: fixed;
+    top: 2%;
+    left: 60px;
+    width: 500px;
+    height: fit-content;
+    background-color: #f1f1f1;
+    box-shadow: 2px 0 5px rgba(0, 0, 0, 0.2);
+    padding: 20px;
+    transition: left 0.3s ease-in-out;
+    z-index: 999;
+    display: none;
+    font-size: 1.5vw;
+    text-align: justify;
+    text-justify: inter-word;
+}
+
+.info-panel.active {
+    left: 60px;
+}
+
+/* Estilos para el contenido de las pantallas */
+.info-content {
+    display: none;
+}
+
+.info-content.active {
+    display: block;
+}
+
+/* Botón para cerrar la pantalla de información */
+.close-btn {
+    position: absolute;
+    top: 20px;
+    right: 20px;
+    font-size: 20px;
+    cursor: pointer;
+}
+
+.sidebarImage {
+    width: 30px;
+    height: 30px;
+}
+
+
+.overlay {
+    position: fixed;
+    top: 0;
+    left: 0;
+    width: 100%;
+    height: 100%;
+    background-color: rgba(0, 0, 0, 0.7);
+    display: none; /* Oculto inicialmente */
+    z-index: 998;
+}
+
+/* Mostrar el overlay y el panel activo */
+.overlay.active, .info-panel.active {
+    display: block;
+}
+
+
+
+
 @media (max-width: 500px) {
     /* TOP MENU */
     #div_items_menu section {
@@ -198,4 +371,22 @@ body::before {
         margin-left: 0px;
         text-align: justify;
     }
+
+
+    /* TIMER */
+    #clock-icon {
+        font-size: 5vw;
+        top: 20px;
+    }
+
+
+    /* SIDEBAR LEFT */
+
+    .info-panel {
+        font-size:4vw;
+        width: 300px;
+    }
 }
+
+
+

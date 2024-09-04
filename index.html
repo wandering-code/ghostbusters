@@ -7,8 +7,103 @@
     <link rel="icon" type="image/x-icon" href="images/favicon.ico">
     <link rel="stylesheet" type="text/css" href="style.css">
     <script src="script.js"></script>
+    <script src="timer.js"></script>
 </head>
 <body>
+    
+    <div id="timer-container">
+        <div id="clock-icon">&#128337;</div>
+        <div id="timer-display">00:00:00</div>
+        <button id="start-stop-button" class="timer-button">Iniciar</button>
+        <button id="reset-button" class="timer-button">Resetear</button>
+    </div>
+
+    <div class="sidebar">
+        <a href="#" data-panel="panel1"><img class="sidebarImage" src="images/cursedPossessions/hauntedMirror.png"></a>
+        <a href="#" data-panel="panel2"><img class="sidebarImage" src="images/cursedPossessions/monkeyPaw.png"></a>
+        <a href="#" data-panel="panel3"><img class="sidebarImage" src="images/cursedPossessions/musicBox.png"></a>
+        <a href="#" data-panel="panel4"><img class="sidebarImage" src="images/cursedPossessions/ouija.png"></a>
+        <a href="#" data-panel="panel5"><img class="sidebarImage" src="images/cursedPossessions/summoningCircle.png"></a>
+        <a href="#" data-panel="panel6"><img class="sidebarImage" src="images/cursedPossessions/tarotCards.png"></a>
+        <a href="#" data-panel="panel7"><img class="sidebarImage" src="images/cursedPossessions/voodooDoll.png"></a>
+    </div>
+
+    <div class="info-panel" id="info-panel">
+        <span class="close-btn" id="close-btn">&times;</span>
+        <div id="panel1" class="info-content">
+            <h2>Espejo maldito</h2>
+            <p>Permite ver cuál es la habitación del fantasma. </p>
+            <p>Cada vez que se utilice, la cordura disminuirá a una velocidad de 7.5% por segundo. 
+                Si la cordura llega a 0, el espejo se romperá y el fantasma iniciará caza.</p>
+        </div>
+        <div id="panel2" class="info-content">
+            <h2>Mano de mono</h2>
+            <p>La mano de mono permite al jugador realizar 5 deseos durante la partida, 
+                sin embargo, al aumentar la dificultad de la misma esta puede disminuir hasta 3 deseos como máximo.</p>
+            <p>Los deseos y sus consecuencias son:</p>
+            <ul>
+                <li><b>Deseo que haya amanecer, nieve, lluvia intensa o clima despejado:</b> Cambiará el clima al especificado,
+                    pero mientras se oscurecerá la pantalla y perderás 25% de cordura.</li>
+                <li><b>Deseo ver al fantasma:</b> El fantasma aparecerá, y tras 5 segundos comenzará la caza.</li>
+                <li><b>Deseo cordura:</b> Aumentará el porcentaje de drenaje de cordura en un 50% del valor actual permanentemente. Además, 
+                    el fantasma podría cambiar de habitación<./li>
+                <li><b>Deseo actividad:</b> Se duplicará la actividad del fantasma durante 2 minutos. El fantasma cerrará todas las puertas de salida y
+                    romperá el cuadro de luces. </li>
+                <li><b>Deseo atrapar al fantasma:</b> Teletransportará al fantasma a su habitación y cerrará su puerta por 1 minuto. También bloqueará la 
+                    puerta de la habitación donde se encuentre el jugador. Al acabar, se iniciará caza.</li>
+                <li><b>Deseo revivir a un amigo:</b> Revivirá a un jugador muerto aleatoriamente. El jugador que lo desee tiene un 50% de probabilidades de morir.</li>
+                <li><b>Deseo estar a salvo:</b> Desbloqueará el escondite más cercano (funciona con cualquier escondite). El fantasma romperá la bombilla del lugar
+                    donde se realizó el deseo, y durante el resto de la partida el fantasma podrá escuchar los aparatos eléctricos desde cualquier
+                    distancia del jugador que lo deseó.</li>
+                <li><b>Deseo irme:</b> Desbloquea todas las puertas de salida durante una caza (sea maldita o normal). La pantalla se oscurecerá y el jugador que 
+                    lo desee no se podrá mover durante 5 segundos.</li>
+                <li><b>Deseo saber más:</b> Eliminará una evidencia incorrecta en el libro de pruebas y todos los fantasmas que usen esa evidencia. 
+                    La pantalla del jugador que lo desee se oscurecerá casi por completo y la audición se saturará durante toda la partida. Además,
+                    el fantasma se teletransportará cerca de su ubicación y comenzará caza maldita.</li>
+                <li><b>Deseo cualquier cosa:</b> La mano de mono realizará un deseo al azar.</li>
+            </ul>
+        </div>
+        <div id="panel3" class="info-content">
+            <h2>Caja de música</h2>
+            <p> La activación de la caja de música provoca que el fantasma cante mientras es invisible, lo que te da una pista de cuál es su ubicación actual.</p>
+            <p>Si la caja de música está a 5 metros o menos del fantasma, este aparecerá físicamente y comenzará a caminar hacia la caja.</p>
+            <p>Si el fantasma te toca, camina durante más de 5 segundos, o si sueltas la caja mientras la música suena, entonces comenzará una cacería inmediatamente.</p>
+            <p>La cordura del jugador solo disminuye si puedes escuchar la música de la caja, por lo que, si te alejas lo suficiente como para no oírla, tu cordura no descenderá por el uso del objeto.</p>
+        </div>
+        <div id="panel4" class="info-content">
+            <h2>Ouija</h2>
+            <p>Este es el contenido de la pantalla 4.</p>
+        </div>
+        <div id="panel5" class="info-content">
+            <h2>Círculo de invocación</h2>
+            <p>Este es el contenido de la pantalla 5.</p>
+        </div>
+        <div id="panel6" class="info-content">
+            <h2>Cartas del tarot</h2>
+            <p>Cada baraja de cartas del tarot contiene un total de 10 cartas que se generan al azar.</p>
+
+            <p>Estas son las posibles cartas (con el porcentaje de que se genere):</p>
+            <ul>
+                <li><b>Death:</b> Provoca una caza (17%)</li>
+                <li><b>The devil:</b> Provoca un evento paranormal (5%)</li>
+                <li><b>The hanged man:</b> Mata instantáneamente al jugador (1%)</li>
+                <li><b>The hermit:</b> Evita que el fantasma salga de su habitación o que comience una cacería (10%)</li>
+                <li><b>The tower:</b> Provoca una interacción. Puede ayudar con la evidencia de la escritura, con los D.O.T.S y puertas (17%)</li>
+                <li><b>The sun:</b> Restaura la cordura al 100% (5%)</li>
+                <li><b>The moon:</b> Baja la cordura al 0% (5%)</li>
+                <li><b>The wheel of fortune:</b> Si la llama es verde, aumenta la cordura un 25%; si es roja, la disminuye (17%)</li>
+                <li><b>The high preistess:</b> Resucita aleatoriamente a un compañero. Si no hay nadie muerto, el primero que muera revivirá (2%)</li>
+                <li><b>The fool:</b> Se quema la carta y se cancela el efecto (17%)</li>
+            </ul>
+        </div>
+        <div id="panel7" class="info-content">
+            <h2>Muñeco vudú</h2>
+            <p>Este es el contenido de la pantalla 7.</p>
+        </div>
+    </div>
+
+    <div class="overlay" id="overlay"></div>
+
     <div id="div_content">
         <div id="div_items_menu">
             <section onclick="selectEvidence(this, 0)">EMF 5</section>

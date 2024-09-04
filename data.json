@@ -8,6 +8,7 @@
           "Durante la caza, no perseguirá ni matará a cualquier jugador que no sea su objetivo (a no ser que éste se encuentre fuera de la casa)."
         ],
         "more_info": [
+          "Promedio de cordura para caza: 50%.",
           "Tiene un grito diferente en el micrófono parabólico.",
           "Si le ocurre un evento de canto al objetivo de la caza, y éste hace desaparecer al fantasma de manera prematura, le bajará la cordura un 15% en lugar de un 10%.",
           "Para completar el objetivo opcional \"Repeler a un fantasma mientras persigue a alguien\" se debe utilizar el incienso cerca del fantasma cuando esté persiguiendo a su objetivo (tanto el mismo objetivo como el resto de jugadores). De lo contrario, no se cumplirá."
@@ -15,6 +16,7 @@
         "evidences": [4, 1, 6],
         "speed_changes": false
       },
+
       {
         "id": 1,
         "name": "Demonio",
@@ -24,25 +26,29 @@
           "Su cooldown se reduce de 25 a 20 segundos.",
           "Quemar incienso en su ubicación prevendrá la caza durante 60 segundos, no 90."
         ],
-        "more_info": [],
+        "more_info": [
+          "Promedio de cordura para caza: 100%-70%."
+        ],
         "evidences": [4, 5, 3],
         "speed_changes": false
       },
+
       {
         "id": 2,
         "name": "Deogen",
         "hunt": [
-          "Puede iniciar cazas a 40% de cordura promedio.",
           "Su velocidad es un 75% superior cuando está a más de 6 metros del jugador. Cuando está a menos, se vuelve mucho más lento.",
           "Los escondites no funcionan y normalmente elige al jugador más cercano a su posición.",
           "Durante la caza, es invisible durante intervalos más cortos."
         ],
         "more_info": [
+          "Promedio de cordura para caza: 40%.",
           "Puede producir una respiración única y pesada a menos de 1 metro."
         ],
         "evidences": [2, 5, 6],
         "speed_changes": true
       },
+
       {
         "id": 3,
         "name": "Goryo",
@@ -50,6 +56,7 @@
           "No tiene comportamiento especial antes, durante o después de una caza"
         ],
         "more_info": [
+          "Promedio de cordura para caza: 50%.",
           "Se mostrará mediante D.O.T.S únicamente a través de una cámara de vídeo.",
           "No interactuará con D.O.T.S si está acompañado.",
           "Nunca cambiará de habitación ni deambulará largas distancias.",
@@ -57,7 +64,307 @@
         ],
         "evidences": [0, 4, 6],
         "speed_changes": false
+      },
+
+      {
+        "id": 4,
+        "name": "Hantu",
+        "hunt": [
+          "Durante la caza es posible ver vaho de la boca del fantasma a oscuras (también a través de la cámara de vídeo)."
+        ],
+        "more_info": [
+          "Promedio de cordura para caza: 50%.",
+          "Su velocidad aumenta con bajas temperaturas (por debajo de 15 grados, hasta un 60% por debajo de los 0 grados).",
+          "Hay mayor probabilidad de que apague el cuadro de luces.",
+          "No variará su velocidad cuando tenga un jugador en la línea de visión."
+        ],
+        "evidences": [4, 1, 3],
+        "speed_changes": true
+      },
+
+      {
+        "id": 5,
+        "name": "Jinn",
+        "hunt": [
+          "Durante la caza, aumentará su velocidad en un 50% si el jugador está en su línea de visión y se encuentra a más de 3 metros (siempre que el cuadro de luces esté activado)."
+        ],
+        "more_info": [
+          "Promedio de cordura para caza: 50%.",
+          "No puede apagar el cuadro de luces.",
+          "Activará un EMF cercano a un cuadro de luces sin apagarlo.",
+          "Al usar su habilidad, bajará un 25% de cordura si el cuadro de luces está encendido."
+        ],
+        "evidences": [0, 4, 3],
+        "speed_changes": true
+      },
+
+      {
+        "id": 6,
+        "name": "Mímico",
+        "hunt": [
+          "Puede imitar la caza temprana de otros fantasmas."
+        ],
+        "more_info": [
+          "Imita la evidencia de los Orbes.",
+          "cambiará la imitación cada intervalo de tiempo de 30-120 segundos, pero nunca durante una caza."
+        ],
+        "evidences": [2, 4, 3],
+        "speed_changes": false
+      },
+
+      {
+        "id": 7,
+        "name": "Moroi",
+        "hunt": [
+          "La velocidad durante la caza es un 10% más lenta por encima del 45% de cordura promedio. Aumentará gradualmente hasta un 30% con un 0% de cordura promedio.",
+          "El efecto del incienso durante la caza dura el doble."
+        ],
+        "more_info": [
+          "Promedio de cordura para caza: 45%.",
+          "Obtener respuesta mediante Spirit Box o micrófono parabólico maldecirá al jugador (o jugadores) duplicando su drenaje de cordura. Fuera de la casa se detendrá temporalmente, y con medicación de detendrá totalmente."
+        ],
+        "evidences": [2, 3, 5],
+        "speed_changes": true
+      },
+
+      {
+        "id": 8,
+        "name": "Myling",
+        "hunt": [
+          "Durante la caza, los pasos y las vocalizaciones solo pueden ser escuchadas a menos de 12 metros."
+        ],
+        "more_info": [
+          "Promedio de cordura para caza: 50%.",
+          "Produce sonidos paranormales a través del micrófono parabólico con más frecuencia."
+        ],
+        "evidences": [0, 4, 5],
+        "speed_changes": false
+      },
+
+      {
+        "id": 9,
+        "name": "Obake",
+        "hunt": [
+          "Durante la caza cambiará de forma una sola vez, durante un parpadeo (no visible para los jugadores muertos)."
+        ],
+        "more_info": [
+          "Promedio de cordura para caza: 50%.",
+          "La evidencia de UV mostrará huella con 6 dedos. También podrá mostrar 2 huellas dactilares (en lugar de 1) en interruptores, lámparas y mandos de TV, 5 huellas dactilares (en lugar de 4) en teclados y puertas de celdas de prisión.",
+          "La evidencia de UV tiene un 75% de probabilidades de aparecer, y su duración se puede reducir a la mitad (varias veces consecutivas)"
+        ],
+        "evidences": [0, 4, 1],
+        "speed_changes": false
+      },
+
+      {
+        "id": 10,
+        "name": "Oni",
+        "hunt": [
+          "Al contrario que el Ente, este fantasma parpadea más lento, por lo que es visible durante más tiempo."
+        ],
+        "more_info": [
+          "Promedio de cordura para caza: 50%.",
+          "Durante un evento paranormal se perderá un 15% de cordura, en lugar de un 10%.",
+          "El evento paranormal nunca será de tipo bola.",
+          "Las interacciones ocurren con más frecuencia cuando hay jugadores cerca."
+        ],
+        "evidences": [0, 3, 6],
+        "speed_changes": false
+      },
+
+      {
+        "id": 11,
+        "name": "Onryo",
+        "hunt": [
+          "Los mecheros, velas y fogatas evitarán la caza en un radio de 4 metros.",
+          "Al iniciar la caza, priorizará antes apagar cualquier fuego que quemar un crucifijo."
+        ],
+        "more_info": [
+          "Promedio de cordura para caza: 60% sin fuego, 40% con fuego."
+        ],
+        "evidences": [2, 1, 3],
+        "speed_changes": false
+      },
+
+      {
+        "id": 12,
+        "name": "Ente",
+        "hunt": [
+          "Se produce una pérdida de cordura de 0.5%/s mientras el jugador está en su línea de visión y a menos de 10 metros (durante evento paranormal o caza)",
+          "El parpadeo durante la caza es el doble de rápido, por lo que será menos visible."
+        ],
+        "more_info": [
+          "Promedio de cordura para caza: 50%.",
+          "Desaparece cuando se le hace una foto.",
+          "En la foto registrada, no aparecerá ni el fantasma ni tampoco interferencias.", 
+          "Puede elegir a un jugador dentro de la casa y caminar hacia él (sin importar la distancia), generando un EMF de nivel 2 en la ubicación del jugador."
+        ],
+        "evidences": [2, 4, 6],
+        "speed_changes": false
+      },
+
+      {
+        "id": 13,
+        "name": "Poltergeist",
+        "hunt": [
+          "Durante la caza, lanzará objetos cercanos con el doble de frecuencia."
+        ],
+        "more_info": [
+          "Promedio de cordura para caza: 50%.",
+          "Puede arrojar varios objetos a la vez, y hacerlo con el doble de fuerza (bajará 2% de cordura por cada objeto en caso de ser varios).",
+          "Al lanzar varios objetos a la vez puede aparecer un falso EMF de nivel 5 en la pantalla del camión."
+        ],
+        "evidences": [2, 4, 5],
+        "speed_changes": false
+      },
+
+      {
+        "id": 14,
+        "name": "Raiju",
+        "hunt": [
+          "Genera interferencias con aparatos electrónicos a 15 metros de distancia (en lugar de 10) durante cazas o eventos paranormales."
+        ],
+        "more_info": [
+          "Promedio de cordura para caza: 65% si hay aparatos electrónicos encendidos en su habitación; 50% si no.",
+          "Su velocidad aumenta si hay aparatos electrónicos cerca."
+        ],
+        "evidences": [0, 1, 6],
+        "speed_changes": true
+      },
+
+      {
+        "id": 15,
+        "name": "Revenant",
+        "hunt": [
+          "Aumenta su velocidad de manera instantánea en un 75% al ver a un jugador (o al percibir sus aparatos electrónicos), y se reduce a un 40% cuando lo pierde de vista."
+        ],
+        "more_info": [
+          "Promedio de cordura para caza: 50%."
+        ],
+        "evidences": [1, 5, 3],
+        "speed_changes": true
+      },
+
+      {
+        "id": 16,
+        "name": "Sombra",
+        "hunt": [
+          "No puede iniciar caza si un jugador está en su habitación."
+        ],
+        "more_info": [
+          "Promedio de cordura para caza: 35%.",
+          "La probabilidad de que ocurran eventos paranormales se basa en la cordura promedio, siendo 0% al 100% de cordura o 100% al 50% de cordura.",
+          "Es probable que los eventos paranormales sean de tipo niebla o tipo bola."
+        ],
+        "evidences": [0, 5, 3],
+        "speed_changes": false
+      },
+
+      {
+        "id": 17,
+        "name": "Espíritu",
+        "hunt": [
+          "Quemar incienso a su alrededor evitará la caza durante 180 segundos."
+        ],
+        "more_info": [
+          "Promedio de cordura para caza: 50%."
+        ],
+        "evidences": [0, 2, 5],
+        "speed_changes": false
+      },
+
+      {
+        "id": 18,
+        "name": "Thaye",
+        "hunt": [
+          "Al inicio de la partida, la velocidad durante la caza será elevada, disminuyendo a medida que el fantasma envejezca.",
+          "No variará su velocidad cuando tenga un jugador en la línea de visión."
+        ],
+        "more_info": [
+          "Promedio de cordura para caza: 75%, y disminuye a medida que el fantasma envejece, deteniéndose en un 15%.",
+          "Intentará envejecer cada 30 segundos. Sólo lo hará cuando haya al menos un jugador en su misma habitación.",
+          "Su respuesta a la preguna de la edad variará en función de lo que haya envejecido."
+        ],
+        "evidences": [1, 5, 6],
+        "speed_changes": true
+      },
+
+      {
+        "id": 19,
+        "name": "Gemelos",
+        "hunt": [
+          "La caza puede comenzar desde lugares diferentes.",
+          "El bloqueo de la caza mediante crucifijo se basa en la ubicación del gemelo principal, sin importar cuál de los dos la inicie.",
+          "Existe una diferencia de velocidad entre ellos de un 20%."
+        ],
+        "more_info": [
+          "Promedio de cordura para caza: 50%.",
+          "Los eventos paranormales pueden ocurrir en dos lugares distintos, incluso a la vez.",
+          "La única evidencia que puede dar el gemelo secundario es EMF."
+        ],
+        "evidences": [0, 2, 3],
+        "speed_changes": true
+      },
+
+      {
+        "id": 20,
+        "name": "Espectro",
+        "hunt": [],
+        "more_info": [
+          "Promedio de cordura para caza: 50%.",
+          "Nunca dejará pisadas en sal.",
+          "Puede teletransportarse a cualquier otro lugar y producir un EMF de nivel 2 (fuera de caza)"
+        ],
+        "evidences": [0, 2, 6],
+        "speed_changes": false
+      },
+
+      {
+        "id": 21,
+        "name": "Yokai",
+        "hunt": [
+          "Durante la caza solo detectará o escuchará a los jugadores que estén a menos de 2.5 metros."
+        ],
+        "more_info": [
+          "Promedio de cordura para caza: 50% o 80% si se habla continuamente cerca de su ubicación."
+        ],
+        "evidences": [2, 1, 6],
+        "speed_changes": false
+      },
+
+      {
+        "id": 22,
+        "name": "Yurei",
+        "hunt": [
+          ""
+        ],
+        "more_info": [
+          "Promedio de cordura para caza: 50%.",
+          "Si cierra completamente una puerta cerca de un jugador, perderá un 15% de cordura.",
+          "Utilizar incienso a su alrededor encerrará al fantasma durante 90 segundos.",
+          "Cierra con más frecuencia las puertas (sin incluir taquillas y armarios). Puede cerrar también las puertas de salida sin entrar en caza."
+        ],
+        "evidences": [1, 3, 6],
+        "speed_changes": false
+      },
+
+      {
+        "id": 23,
+        "name": "Pesadilla",
+        "hunt": [
+          ""
+        ],
+        "more_info": [
+          "Promedio de cordura para caza: 50% a oscuras, 40% con luces.",
+          "Los eventos paranormales romperán con mayor probabilidad las bombillas.",
+          "Es más probable que las interacciones sean apagar luces.",
+          "No puede encender luces.",
+          "Hay mayor probabilidad de que cambie de habitación si en la que está permanece iluminada."
+        ],
+        "evidences": [2, 1, 5],
+        "speed_changes": false
       }
+      
     ],
 
     "evidences": [
