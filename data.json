@@ -191,7 +191,7 @@
         "name": "Ente",
         "hunt": [
           "Se produce una pérdida de cordura de 0.5%/s mientras el jugador está en su línea de visión y a menos de 10 metros (durante evento paranormal o caza)",
-          "El parpadeo durante la caza es el doble de rápido, por lo que será menos visible."
+          "El parpadeo durante la caza es lento."
         ],
         "more_info": [
           "Promedio de cordura para caza: 50%.",
@@ -402,6 +402,52 @@
         "id": 6,
         "name": "D.O.T.S",
         "tip": "Consejos o información útil sobre el objeto"
+      }
+    ], 
+    
+
+    "cursed_possessions": [
+      {
+        "id": 0,
+        "name": "Espejo maldito",
+        "description": "Permite ver cuál es la habitación del fantasma.<br><br>Cada vez que se utilice, la cordura disminuirá a una velocidad de 7.5% por segundo. Si la cordura llega a 0, el espejo se romperá y el fantasma iniciará caza.",
+        "image": "images/cursedPossessions/hauntedMirror.png"
+      },
+      {
+        "id": 1,
+        "name": "Mano de mono",
+        "description": "La mano de mono permite al jugador realizar 5 deseos durante la partida, sin embargo, al aumentar la dificultad de la misma esta puede disminuir hasta 3 deseos como máximo.</br></br> Los deseos y sus consecuencias son: <ul> <li><b>Deseo que haya amanecer, nieve, lluvia intensa o clima despejado:</b> Cambiará el clima al especificado, pero mientras se oscurecerá la pantalla y perderás 25% de cordura.</li> <li><b>Deseo ver al fantasma:</b> El fantasma aparecerá, y tras 5 segundos comenzará la caza.</li> <li><b>Deseo cordura:</b> Aumentará el porcentaje de drenaje de cordura en un 50% del valor actual permanentemente. Además,  el fantasma podría cambiar de habitación<./li> <li><b>Deseo actividad:</b> Se duplicará la actividad del fantasma durante 2 minutos. El fantasma cerrará todas las puertas de salida y romperá el cuadro de luces. </li> <li><b>Deseo atrapar al fantasma:</b> Teletransportará al fantasma a su habitación y cerrará su puerta por 1 minuto. También bloqueará la puerta de la habitación donde se encuentre el jugador. Al acabar, se iniciará caza.</li><li><b>Deseo revivir a un amigo:</b> Revivirá a un jugador muerto aleatoriamente. El jugador que lo desee tiene un 50% de probabilidades de morir.</li><li><b>Deseo estar a salvo:</b> Desbloqueará el escondite más cercano (funciona con cualquier escondite). El fantasma romperá la bombilla del lugardonde se realizó el deseo, y durante el resto de la partida el fantasma podrá escuchar los aparatos eléctricos desde cualquier distancia del jugador que lo deseó.</li> <li><b>Deseo irme:</b> Desbloquea todas las puertas de salida durante una caza (sea maldita o normal). La pantalla se oscurecerá y el jugador que  lo desee no se podrá mover durante 5 segundos.</li> <li><b>Deseo saber más:</b> Eliminará una evidencia incorrecta en el libro de pruebas y todos los fantasmas que usen esa evidencia. La pantalla del jugador que lo desee se oscurecerá casi por completo y la audición se saturará durante toda la partida. Además, el fantasma se teletransportará cerca de su ubicación y comenzará caza maldita.</li> <li><b>Deseo cualquier cosa:</b> La mano de mono realizará un deseo al azar.</li></ul>",
+        "image": "images/cursedPossessions/monkeyPaw.png"
+      },
+      {
+        "id": 2,
+        "name": "Caja de música",
+        "description": "Consejos o información útil sobre el objeto",
+        "image": "images/cursedPossessions/musicBox.png"
+      },
+      {
+        "id": 3,
+        "name": "Ouija",
+        "description": "Consejos o información útil sobre el objeto",
+        "image": "images/cursedPossessions/ouija.png"
+      },
+      {
+        "id": 4,
+        "name": "Círculo de invocación",
+        "description": "Consejos o información útil sobre el objeto",
+        "image": "images/cursedPossessions/summoningCircle.png"
+      },
+      {
+        "id": 5,
+        "name": "Cartas del tarot",
+        "description": "Consejos o información útil sobre el objeto",
+        "image": "images/cursedPossessions/tarotCards.png"
+      },
+      {
+        "id": 6,
+        "name": "Muñeco vudú",
+        "description": "Consejos o información útil sobre el objeto",
+        "image": "images/cursedPossessions/voodooDoll.png"
       }
     ]
   }

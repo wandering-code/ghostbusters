@@ -14,10 +14,13 @@ function initialize() {
     .then(d => {
         data = d; 
         filterGhosts();
+
+        initializeGhostFilter();
+
+        initializeCursedPossessionsSidebar();
     })
     .catch(error => console.error('Error:', error));
 }
-
 
 function filterGhosts() {
     console.log("Filtering data...");
@@ -68,7 +71,7 @@ function filterGhosts() {
         element.hunt.forEach(huntInfo => {
             let p = document.createElement('p');
             p.innerHTML = huntInfo;
-            p.style = "color: red;"
+            p.style = "color: rgb(138, 0, 0);"
             infoSection.appendChild(p);
         })
 
@@ -85,72 +88,106 @@ function filterGhosts() {
 
 }
 
-
-
 function selectEvidence(element, id) {
-    console.log("Clicked in evidence with ID: " + id);
-
     if (element.dataset.state == "selected") {
         element.dataset.state = "strikethrough";
         filters.selectedEvidences = filters.selectedEvidences.filter(item => item !== id);
         filters.strikethroughEvidences.push(id);
         element.style.backgroundImage = 'url(images/strikethrough.png)';
-
     } else if (element.dataset.state == "strikethrough") { 
-        element.dataset.state = "";
+        element.dataset.state = '';
         filters.strikethroughEvidences = filters.strikethroughEvidences.filter(item => item !== id);
         element.style.backgroundImage = '';
-
     } else {
         element.dataset.state = "selected";
         filters.selectedEvidences.push(id);
-        element.style.backgroundImage = 'url(images/selection3.png)';
+        element.style.backgroundImage = 'url(images/selection.png)';
     }
 
     filterGhosts();
 }
 
 
-
-
-
-document.addEventListener("DOMContentLoaded", function() {
-
-    const sidebarLinks = document.querySelectorAll('.sidebar a');
-    const infoPanel = document.getElementById('info-panel');
-    const closeBtn = document.getElementById('close-btn');
-    const infoContents = document.querySelectorAll('.info-content');
+function initializeCursedPossessionsSidebar() {
+    let cursedPossessionsDiv = document.getElementById('cursedPossessions');
+    let cursedPossessionsPanelsDiv = document.getElementById('cursedPossessionsPanel');
     const overlay = document.getElementById('overlay');
+    const cursedPossessionsPanelCloseBtn = document.getElementById('cursedPossessionsPanelCloseBtn');
 
-    // Añadir eventos a los enlaces de la barra lateral
-    sidebarLinks.forEach(link => {
-        link.addEventListener('click', (e) => {
+    for (let i = 0; i < data.cursed_possessions.length; i++) {
+        let cursedPossession = data.cursed_possessions[i];
+
+        // Create cursed possessions sidebar
+        let a = document.createElement('a');
+        a.href = '#';
+        a.dataset.id = 'cursedPossessionPanel' + i;
+
+        let img = document.createElement('img');
+        img.classList.add('cursedPossessionImage');
+        img.src = cursedPossession.image;
+
+        a.appendChild(img);
+
+        // Create cursed possessions sidebar content
+        let div = document.createElement('div');
+        div.id = 'cursedPossessionPanel' + i;
+        div.classList.add('cursedPossessionPanelContent')
+        div.classList.add('active');
+
+        let h2 = document.createElement('h2');
+        h2.innerHTML = cursedPossession.name;
+
+        let p = document.createElement('p');
+        p.innerHTML = cursedPossession.description;
+
+        div.appendChild(h2);
+        div.appendChild(p);
+
+        cursedPossessionsDiv.appendChild(a);
+
+        cursedPossessionsPanelsDiv.appendChild(div);
+
+        a.addEventListener('click', (e) => {
             e.preventDefault();
-
-            // Ocultar cualquier contenido activo anterior
-            infoContents.forEach(content => content.classList.remove('active'));
-
-            // Mostrar el overlay y la pantalla de información
+            const cursedPossessionPanelContent = document.querySelectorAll('.cursedPossessionPanelContent');
+            cursedPossessionPanelContent.forEach(content => content.classList.remove('active'));
             overlay.classList.add('active');
-            infoPanel.classList.add('active');
-
-            // Mostrar el contenido correspondiente al enlace
-            const panelId = link.getAttribute('data-panel');
-            document.getElementById(panelId).classList.add('active');
+            cursedPossessionsPanelsDiv.classList.add('active');
+            div.classList.add('active');
         });
-    });
+    }
 
-    // Añadir evento para cerrar la pantalla de información
-    closeBtn.addEventListener('click', () => {
+    cursedPossessionsPanelCloseBtn.addEventListener('click', () => {
         overlay.classList.remove('active');
-        infoPanel.classList.remove('active');
-        infoContents.forEach(content => content.classList.remove('active'));
+        cursedPossessionsPanelsDiv.classList.remove('active');
+        cursedPossessionPanelContent.forEach(content => content.classList.remove('active'));
     });
 
-    // También cerrar el overlay al hacer clic en el mismo
     overlay.addEventListener('click', () => {
         overlay.classList.remove('active');
-        infoPanel.classList.remove('active');
-        infoContents.forEach(content => content.classList.remove('active'));
+        cursedPossessionsPanelsDiv.classList.remove('active');
+        cursedPossessionPanelContent.forEach(content => content.classList.remove('active'));
     });
-});
+}
+
+function initializeGhostFilter() {
+    let divItemsMenu = document.getElementById('div_items_menu');
+
+    data.evidences.forEach(evidence => {
+        let section = document.createElement('section');
+        section.setAttribute('onclick', 'selectEvidence(this, ' + evidence.id + ')');
+        section.innerHTML = evidence.name;
+
+        section.addEventListener('contextmenu', (event) => {
+            event.preventDefault();
+            section.dataset.state = '';
+            filters.strikethroughEvidences = filters.strikethroughEvidences.filter(item => item !== evidence.id);
+            filters.selectedEvidences = filters.selectedEvidences.filter(item => item !== evidence.id);
+            section.style.backgroundImage = '';
+            filterGhosts();
+        });
+
+        divItemsMenu.appendChild(section);
+    })
+}
+
