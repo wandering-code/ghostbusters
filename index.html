@@ -27,7 +27,27 @@
     <div class="overlay" id="overlay"></div>
 
     <div id="div_content">
-        <div id="div_items_menu"></div>
+        <div id="div_items_menu">
+            <i class="itemsTrashIcon" id="itemsTrashIcon" onclick="clearItemFilter()">❌</i>
+        </div>
+        <div id="div_filter_menu">
+            <div>
+                <input type="checkbox" id="alteredSpeed" class="custom-checkbox" onclick="filterGhosts(null, this.checked)">
+                <label for="alteredSpeed" class="custom-label">
+                    <span class="checkmark"></span>
+                    Velocidad alterada
+                </label>
+            </div>
+            <div>
+                <input type="checkbox" id="alteredBlink" class="custom-checkbox">
+                <label for="alteredBlink" class="custom-label">
+                    <span class="checkmark"></span>
+                    Parpadeo alterado
+                </label>
+            </div>
+            <input type="text" id="textSearch" oninput="filterGhosts(this.value)" placeholder="Filtra por texto">
+
+        </div>
         <div id="div_ghosts"></div>
     </div>
 </body>

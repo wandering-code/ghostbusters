@@ -4,6 +4,8 @@ var filters = {
     "strikethroughEvidences": []
 };
 
+var filt = false;
+
 document.addEventListener('DOMContentLoaded', () => {
     initialize();
 });
@@ -22,17 +24,58 @@ function initialize() {
     .catch(error => console.error('Error:', error));
 }
 
-function filterGhosts() {
-    console.log("Filtering data...");
+function filterGhosts(textToSearch, alteredSpeed) {
     let container = document.getElementById('div_ghosts');
     container.innerHTML = "";
+    let filteredData;
+    let filteredByEvidences = filters.selectedEvidences.length > 0 || filters.strikethroughEvidences.length > 0;
+    let filteredByText = (textToSearch != null && textToSearch != "") || (document.getElementById('textSearch').value != "");
+    let filteredBySpeed = (alteredSpeed != null && alteredSpeed) || (document.getElementById('alteredSpeed').checked);
 
-    let filteredData = data.ghosts.filter(ghost => {
-        const hasSelectedEvidences = filters.selectedEvidences.every(evidence => ghost.evidences.includes(parseInt(evidence)));
-        const hasNoStrikethroughEvidences = filters.strikethroughEvidences.every(evidence => !ghost.evidences.includes(parseInt(evidence)));
+    textToSearch = textToSearch == null || textToSearch == "" ? document.getElementById('textSearch').value : textToSearch;
+    filteredBySpeed = alteredSpeed == null || !alteredSpeed ? document.getElementById('alteredSpeed').checked : alteredSpeed;
+
+    if (!filteredByEvidences && !filteredByText && !filteredBySpeed) {
+        filteredData = data.ghosts;
+    } else {
+        filteredData = data.ghosts.filter(ghost => {
+            let arrayOfChecks = []
+
+            const hasSelectedEvidences = filters.selectedEvidences != "" ? filters.selectedEvidences.every(evidence => ghost.evidences.includes(parseInt(evidence))) : false;
+            const hasNoStrikethroughEvidences = filters.strikethroughEvidences != "" ? filters.strikethroughEvidences.every(evidence => !ghost.evidences.includes(parseInt(evidence))) : false;
+
+            if (filteredByEvidences) {
+                if (hasSelectedEvidences || hasNoStrikethroughEvidences) {
+                    arrayOfChecks.push(true);
+                } else {
+                    arrayOfChecks.push(false);
+                }
+            }
+
+            const hasTextToSearch = textToSearch != null && textToSearch != "" ? (ghost.name.toLowerCase().includes(textToSearch.toLowerCase()) 
+                || ghost.hunt.some(item => item.toLowerCase().includes(textToSearch.toLowerCase()))
+                || ghost.more_info.some(item => item.toLowerCase().includes(textToSearch.toLowerCase()))) : false;
+
+            if (filteredByText) {
+                if (hasTextToSearch) {
+                    arrayOfChecks.push(true);
+                } else {
+                    arrayOfChecks.push(false);
+                }
+            }
+
+            if (filteredBySpeed) {
+                if (ghost.speed_changes) {
+                    arrayOfChecks.push(true);
+                } else {
+                    arrayOfChecks.push(false);
+                }
+            }
+
+            return arrayOfChecks.every(value => value === true)
+        });
+    }
         
-        return hasSelectedEvidences && hasNoStrikethroughEvidences;
-    });
 
     filteredData.forEach(element => {
 
@@ -45,6 +88,8 @@ function filterGhosts() {
         let nameSection = document.createElement('section');
         nameSection.innerHTML = element.name;
         nameSection.className = "nameSectionCard";
+        nameSection.setAttribute('onclick', "discardGhost(this.closest('.ghostCard'))");
+        nameSection.style.cursor = "pointer";
 
         let evidencesDiv = document.createElement('div');
         let evidence1Section = document.createElement('section');
@@ -98,10 +143,12 @@ function selectEvidence(element, id) {
         element.dataset.state = '';
         filters.strikethroughEvidences = filters.strikethroughEvidences.filter(item => item !== id);
         element.style.backgroundImage = '';
+        filt = false;
     } else {
         element.dataset.state = "selected";
         filters.selectedEvidences.push(id);
         element.style.backgroundImage = 'url(images/selection.png)';
+        filt = true;
     }
 
     filterGhosts();
@@ -149,7 +196,7 @@ function initializeCursedPossessionsSidebar() {
 
         a.addEventListener('click', (e) => {
             e.preventDefault();
-            const cursedPossessionPanelContent = document.querySelectorAll('.cursedPossessionPanelContent');
+            let cursedPossessionPanelContent = document.querySelectorAll('.cursedPossessionPanelContent');
             cursedPossessionPanelContent.forEach(content => content.classList.remove('active'));
             overlay.classList.add('active');
             cursedPossessionsPanelsDiv.classList.add('active');
@@ -160,6 +207,7 @@ function initializeCursedPossessionsSidebar() {
     cursedPossessionsPanelCloseBtn.addEventListener('click', () => {
         overlay.classList.remove('active');
         cursedPossessionsPanelsDiv.classList.remove('active');
+        let cursedPossessionPanelContent = document.querySelectorAll('.c');
         cursedPossessionPanelContent.forEach(content => content.classList.remove('active'));
     });
 
@@ -191,3 +239,26 @@ function initializeGhostFilter() {
     })
 }
 
+function clearItemFilter() {
+    filters.strikethroughEvidences = [];
+    filters.selectedEvidences = [];
+
+    document.querySelectorAll('#div_items_menu section').forEach((section, index) => {
+        section.dataset.state = '';
+        section.style.backgroundImage = '';
+    });
+
+    filterGhosts();
+}
+
+function discardGhost(div) {
+    console.log("PROBANDO: " + div);
+
+    if (div.classList.contains("discarded")) {
+        div.style.opacity = '1';
+        div.classList.remove("discarded");
+    } else {
+        div.style.opacity = '0.5';
+        div.classList.add("discarded");
+    }
+}

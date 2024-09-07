@@ -37,7 +37,7 @@ body::before {
     padding-bottom: 20px;
 }
 
-#div_items_menu {
+#div_items_menu, #div_filter_menu {
     background-color: rgb(20, 20, 20);
     border-radius: 10px;
     margin-top: 10px;
@@ -47,12 +47,16 @@ body::before {
     box-sizing: border-box;
     z-index: 1;
     color:#e8fad7;
+    justify-content: space-around;
 }
 
-#div_items_menu {
-    display: flex;
-    justify-content: space-around;
-    
+#div_filter_menu {
+    justify-content: center;
+    justify-content: space-between;
+}
+
+#div_filter_menu > * {
+    margin: 10px;
 }
 
 #div_items_menu section {
@@ -315,6 +319,17 @@ body::before {
 
 
 
+
+
+.itemsTrashIcon, .filterTrashIcon {
+    position: absolute;
+    top: 10px;
+    right: 5px;
+    cursor: pointer;
+}
+
+
+
 @media (max-width: 500px) {
     /* TOP MENU */
     #div_items_menu section {
@@ -387,3 +402,62 @@ body::before {
 
 
 
+
+
+
+
+
+
+
+
+.checkbox-container {
+    display: flex;
+    align-items: center;
+}
+
+.custom-checkbox {
+    display: none; /* Ocultar el checkbox original */
+}
+
+.custom-label {
+    display: flex;
+    align-items: center;
+    cursor: pointer;
+    position: relative;
+    font-size: 16px;
+    padding-left: 35px; /* Espacio para el checkmark */
+    line-height: 20px;
+}
+
+.custom-label .checkmark {
+    position: absolute;
+    top: 0;
+    left: 0;
+    height: 20px;
+    width: 20px;
+    background-color: #eee;
+    border-radius: 4px;
+    transition: background-color 0.3s, border-color 0.3s;
+}
+
+.custom-checkbox:checked + .custom-label .checkmark {
+    background-color: #4CAF50;
+    border-color: #4CAF50;
+}
+
+.custom-label .checkmark:after {
+    content: "";
+    position: absolute;
+    display: none;
+}
+
+.custom-checkbox:checked + .custom-label .checkmark:after {
+    display: block;
+    left: 7px;
+    top: 3px;
+    width: 6px;
+    height: 12px;
+    border: solid white;
+    border-width: 0 2px 2px 0;
+    transform: rotate(45deg);
+}
