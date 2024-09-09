@@ -15,7 +15,7 @@
         ],
         "evidences": [4, 1, 6],
         "altered_speed": false,
-        "altered_blink": true,
+        "altered_blink": false,
         "discarded": false
       },
 
