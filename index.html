@@ -28,18 +28,18 @@
 
     <div id="div_content">
         <div id="div_items_menu">
-            <i class="itemsTrashIcon" id="itemsTrashIcon" onclick="clearItemFilter()">❌</i>
+            <i class="itemsTrashIcon" id="itemsTrashIcon" onclick="clearAll()">❌</i>
         </div>
         <div id="div_filter_menu">
             <div>
-                <input type="checkbox" id="alteredSpeed" class="custom-checkbox" onclick="filterGhosts(null, this.checked)">
+                <input type="checkbox" id="alteredSpeed" class="custom-checkbox" onclick="filterGhosts(null, this.checked, null)">
                 <label for="alteredSpeed" class="custom-label">
                     <span class="checkmark"></span>
                     Velocidad alterada
                 </label>
             </div>
             <div>
-                <input type="checkbox" id="alteredBlink" class="custom-checkbox">
+                <input type="checkbox" id="alteredBlink" class="custom-checkbox" onclick="filterGhosts(null, null, this.checked)">
                 <label for="alteredBlink" class="custom-label">
                     <span class="checkmark"></span>
                     Parpadeo alterado

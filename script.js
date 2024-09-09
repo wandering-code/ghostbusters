@@ -24,18 +24,20 @@ function initialize() {
     .catch(error => console.error('Error:', error));
 }
 
-function filterGhosts(textToSearch, alteredSpeed) {
+function filterGhosts(textToSearch, alteredSpeed, alteredBlink) {
     let container = document.getElementById('div_ghosts');
     container.innerHTML = "";
     let filteredData;
     let filteredByEvidences = filters.selectedEvidences.length > 0 || filters.strikethroughEvidences.length > 0;
     let filteredByText = (textToSearch != null && textToSearch != "") || (document.getElementById('textSearch').value != "");
     let filteredBySpeed = (alteredSpeed != null && alteredSpeed) || (document.getElementById('alteredSpeed').checked);
+    let filteredByBlink = (alteredBlink != null && alteredBlink) || (document.getElementById('alteredBlink').checked);
 
-    textToSearch = textToSearch == null || textToSearch == "" ? document.getElementById('textSearch').value : textToSearch;
-    filteredBySpeed = alteredSpeed == null || !alteredSpeed ? document.getElementById('alteredSpeed').checked : alteredSpeed;
+    textToSearch = filteredByText ? document.getElementById('textSearch').value : "";
+    filteredBySpeed = filteredBySpeed ? document.getElementById('alteredSpeed').checked : false;
+    filteredByBlink = filteredByBlink ? document.getElementById('alteredBlink').checked : false;
 
-    if (!filteredByEvidences && !filteredByText && !filteredBySpeed) {
+    if (!filteredByEvidences && !filteredByText && !filteredBySpeed && !filteredByBlink) {
         filteredData = data.ghosts;
     } else {
         filteredData = data.ghosts.filter(ghost => {
@@ -65,7 +67,15 @@ function filterGhosts(textToSearch, alteredSpeed) {
             }
 
             if (filteredBySpeed) {
-                if (ghost.speed_changes) {
+                if (ghost.altered_speed) {
+                    arrayOfChecks.push(true);
+                } else {
+                    arrayOfChecks.push(false);
+                }
+            }
+
+            if (filteredByBlink) {
+                if (ghost.altered_blink) {
                     arrayOfChecks.push(true);
                 } else {
                     arrayOfChecks.push(false);
@@ -78,9 +88,13 @@ function filterGhosts(textToSearch, alteredSpeed) {
         
 
     filteredData.forEach(element => {
-
         let card = document.createElement('div');
         card.className = "ghostCard";
+         
+        if (element.discarded) {
+            card.style.opacity = '0.5';
+            card.classList.add("discarded");
+        }
 
         let groupNameAndEvidencesCard = document.createElement('div');
         groupNameAndEvidencesCard.className = "groupNameAndEvidencesCard";
@@ -88,7 +102,7 @@ function filterGhosts(textToSearch, alteredSpeed) {
         let nameSection = document.createElement('section');
         nameSection.innerHTML = element.name;
         nameSection.className = "nameSectionCard";
-        nameSection.setAttribute('onclick', "discardGhost(this.closest('.ghostCard'))");
+        nameSection.setAttribute('onclick', "discardGhost(this.closest('.ghostCard'), " + element.id + ")");
         nameSection.style.cursor = "pointer";
 
         let evidencesDiv = document.createElement('div');
@@ -239,7 +253,7 @@ function initializeGhostFilter() {
     })
 }
 
-function clearItemFilter() {
+function clearAll() {
     filters.strikethroughEvidences = [];
     filters.selectedEvidences = [];
 
@@ -248,17 +262,25 @@ function clearItemFilter() {
         section.style.backgroundImage = '';
     });
 
+    document.getElementById('alteredSpeed').checked = false;
+    document.getElementById('alteredBlink').checked = false;
+    document.getElementById('textSearch').value = "";
+
+    data.ghosts.forEach(ghost => {
+        ghost.discarded = false;
+    })
+
     filterGhosts();
 }
 
-function discardGhost(div) {
-    console.log("PROBANDO: " + div);
-
+function discardGhost(div, ghostId) {
     if (div.classList.contains("discarded")) {
         div.style.opacity = '1';
         div.classList.remove("discarded");
+        data.ghosts.find(ghost => ghost.id === ghostId).discarded = false;
     } else {
         div.style.opacity = '0.5';
         div.classList.add("discarded");
+        data.ghosts.find(ghost => ghost.id === ghostId).discarded = true;
     }
 }

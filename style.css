@@ -59,6 +59,10 @@ body::before {
     margin: 10px;
 }
 
+#div_filter_menu label {
+    font-size: 1.3vw;
+}
+
 #div_items_menu section {
     text-align: center;
     margin: 10px;

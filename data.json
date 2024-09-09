@@ -14,7 +14,9 @@
           "Para completar el objetivo opcional \"Repeler a un fantasma mientras persigue a alguien\" se debe utilizar el incienso cerca del fantasma cuando esté persiguiendo a su objetivo (tanto el mismo objetivo como el resto de jugadores). De lo contrario, no se cumplirá."
         ],
         "evidences": [4, 1, 6],
-        "speed_changes": false
+        "altered_speed": false,
+        "altered_blink": true,
+        "discarded": false
       },
 
       {
@@ -30,7 +32,9 @@
           "Promedio de cordura para caza: 100%-70%."
         ],
         "evidences": [4, 5, 3],
-        "speed_changes": false
+        "altered_speed": false,
+        "altered_blink": false,
+        "discarded": false
       },
 
       {
@@ -46,7 +50,9 @@
           "Puede producir una respiración única y pesada a menos de 1 metro."
         ],
         "evidences": [2, 5, 6],
-        "speed_changes": true
+        "altered_speed": true,
+        "altered_blink": false,
+        "discarded": false
       },
 
       {
@@ -63,7 +69,9 @@
           "Con evidencias limitadas (1 o 2), una de sus evidencias siempre será D.O.T.S."
         ],
         "evidences": [0, 4, 6],
-        "speed_changes": false
+        "altered_speed": false,
+        "altered_blink": false,
+        "discarded": false
       },
 
       {
@@ -79,7 +87,9 @@
           "No variará su velocidad cuando tenga un jugador en la línea de visión."
         ],
         "evidences": [4, 1, 3],
-        "speed_changes": true
+        "altered_speed": true,
+        "altered_blink": false,
+        "discarded": false
       },
 
       {
@@ -95,7 +105,9 @@
           "Al usar su habilidad, bajará un 25% de cordura si el cuadro de luces está encendido."
         ],
         "evidences": [0, 4, 3],
-        "speed_changes": true
+        "altered_speed": true,
+        "altered_blink": false,
+        "discarded": false
       },
 
       {
@@ -109,7 +121,9 @@
           "cambiará la imitación cada intervalo de tiempo de 30-120 segundos, pero nunca durante una caza."
         ],
         "evidences": [2, 4, 3],
-        "speed_changes": false
+        "altered_speed": false,
+        "altered_blink": false,
+        "discarded": false
       },
 
       {
@@ -124,7 +138,9 @@
           "Obtener respuesta mediante Spirit Box o micrófono parabólico maldecirá al jugador (o jugadores) duplicando su drenaje de cordura. Fuera de la casa se detendrá temporalmente, y con medicación de detendrá totalmente."
         ],
         "evidences": [2, 3, 5],
-        "speed_changes": true
+        "altered_speed": true,
+        "altered_blink": false,
+        "discarded": false
       },
 
       {
@@ -138,7 +154,9 @@
           "Produce sonidos paranormales a través del micrófono parabólico con más frecuencia."
         ],
         "evidences": [0, 4, 5],
-        "speed_changes": false
+        "altered_speed": false,
+        "altered_blink": false,
+        "discarded": false
       },
 
       {
@@ -153,7 +171,9 @@
           "La evidencia de UV tiene un 75% de probabilidades de aparecer, y su duración se puede reducir a la mitad (varias veces consecutivas)"
         ],
         "evidences": [0, 4, 1],
-        "speed_changes": false
+        "altered_speed": false,
+        "altered_blink": false,
+        "discarded": false
       },
 
       {
@@ -169,7 +189,9 @@
           "Las interacciones ocurren con más frecuencia cuando hay jugadores cerca."
         ],
         "evidences": [0, 3, 6],
-        "speed_changes": false
+        "altered_speed": false,
+        "altered_blink": true,
+        "discarded": false
       },
 
       {
@@ -183,7 +205,9 @@
           "Promedio de cordura para caza: 60% sin fuego, 40% con fuego."
         ],
         "evidences": [2, 1, 3],
-        "speed_changes": false
+        "altered_speed": false,
+        "altered_blink": false,
+        "discarded": false
       },
 
       {
@@ -191,7 +215,7 @@
         "name": "Ente",
         "hunt": [
           "Se produce una pérdida de cordura de 0.5%/s mientras el jugador está en su línea de visión y a menos de 10 metros (durante evento paranormal o caza)",
-          "El parpadeo durante la caza es lento."
+          "Durante la caza, debido a su parpadeo será menos visible."
         ],
         "more_info": [
           "Promedio de cordura para caza: 50%.",
@@ -200,7 +224,9 @@
           "Puede elegir a un jugador dentro de la casa y caminar hacia él (sin importar la distancia), generando un EMF de nivel 2 en la ubicación del jugador."
         ],
         "evidences": [2, 4, 6],
-        "speed_changes": false
+        "altered_speed": false,
+        "altered_blink": true,
+        "discarded": false
       },
 
       {
@@ -215,7 +241,9 @@
           "Al lanzar varios objetos a la vez puede aparecer un falso EMF de nivel 5 en la pantalla del camión."
         ],
         "evidences": [2, 4, 5],
-        "speed_changes": false
+        "altered_speed": false,
+        "altered_blink": false,
+        "discarded": false
       },
 
       {
@@ -229,7 +257,9 @@
           "Su velocidad aumenta si hay aparatos electrónicos cerca."
         ],
         "evidences": [0, 1, 6],
-        "speed_changes": true
+        "altered_speed": true,
+        "altered_blink": false,
+        "discarded": false
       },
 
       {
@@ -242,7 +272,9 @@
           "Promedio de cordura para caza: 50%."
         ],
         "evidences": [1, 5, 3],
-        "speed_changes": true
+        "altered_speed": true,
+        "altered_blink": false,
+        "discarded": false
       },
 
       {
@@ -257,7 +289,9 @@
           "Es probable que los eventos paranormales sean de tipo niebla o tipo bola."
         ],
         "evidences": [0, 5, 3],
-        "speed_changes": false
+        "altered_speed": false,
+        "altered_blink": false,
+        "discarded": false
       },
 
       {
@@ -270,7 +304,9 @@
           "Promedio de cordura para caza: 50%."
         ],
         "evidences": [0, 2, 5],
-        "speed_changes": false
+        "altered_speed": false,
+        "altered_blink": false,
+        "discarded": false
       },
 
       {
@@ -286,7 +322,9 @@
           "Su respuesta a la preguna de la edad variará en función de lo que haya envejecido."
         ],
         "evidences": [1, 5, 6],
-        "speed_changes": true
+        "altered_speed": true,
+        "altered_blink": false,
+        "discarded": false
       },
 
       {
@@ -303,7 +341,9 @@
           "La única evidencia que puede dar el gemelo secundario es EMF."
         ],
         "evidences": [0, 2, 3],
-        "speed_changes": true
+        "altered_speed": true,
+        "altered_blink": false,
+        "discarded": false
       },
 
       {
@@ -316,7 +356,9 @@
           "Puede teletransportarse a cualquier otro lugar y producir un EMF de nivel 2 (fuera de caza)"
         ],
         "evidences": [0, 2, 6],
-        "speed_changes": false
+        "altered_speed": false,
+        "altered_blink": false,
+        "discarded": false
       },
 
       {
@@ -329,7 +371,9 @@
           "Promedio de cordura para caza: 50% o 80% si se habla continuamente cerca de su ubicación."
         ],
         "evidences": [2, 1, 6],
-        "speed_changes": false
+        "altered_speed": false,
+        "altered_blink": false,
+        "discarded": false
       },
 
       {
@@ -345,7 +389,9 @@
           "Cierra con más frecuencia las puertas (sin incluir taquillas y armarios). Puede cerrar también las puertas de salida sin entrar en caza."
         ],
         "evidences": [1, 3, 6],
-        "speed_changes": false
+        "altered_speed": false,
+        "altered_blink": false,
+        "discarded": false
       },
 
       {
@@ -362,7 +408,9 @@
           "Hay mayor probabilidad de que cambie de habitación si en la que está permanece iluminada."
         ],
         "evidences": [2, 1, 5],
-        "speed_changes": false
+        "altered_speed": false,
+        "altered_blink": false,
+        "discarded": false
       }
       
     ],
